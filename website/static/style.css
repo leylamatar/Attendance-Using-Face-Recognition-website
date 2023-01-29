@@ -1,7 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans",sans-serif;
+    box-sizing: border-box;
+}
 body {
-    background: #ffffff;
-    color: #360000;
+    
     margin-top: 5rem;
+ 
+    align-items: center;
+    justify-content: center;
+    background-color: #f1f1f1;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -9,7 +18,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #343757;
+    background-color: #1f497c;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -25,11 +34,12 @@ body {
   }
   
   .content-section {
-    background: #ffffff;
-    padding: 10px 20px;
-    border: 1px solid #dddddd;
+    background: #f8f6f6;
+    padding: 10px 50px;
+    border: 1px solid #ffffff;
     border-radius: 3px;
     margin-bottom: 20px;
+
   }
   
   .article-title {
@@ -83,4 +93,73 @@ body {
     text-align: center;
     
   }
+.home-section{
+  background: url(pic2.png) no-repeat left;
+  background-size: 55%;
+  background-color: #fdfdfd;
+  overflow: hidden;
+  
+}
+.inner-container{
+  width: 55%;
+  float: right;
+  background: linear-gradient(#80FFDB, #8ce2e2, #81cce2, #669ada, #2a2b63);
+  padding: 90px;
+  
+}
+.inner-container h1{
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: 900;
+}
+.paragraf {
+  font-size: 13px;
+  color: #000000;
+  line-height: 30px;
+  text-align: justify;
+  margin-bottom: 40px;
+}
+.pson{
+  margin-top: 0px;
+  color: #ffffff;
+  text-decoration: double;
+  font-weight: 900;
+}
+#logbtn{
+  
+  background-color: #74acd1;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 40px;
+  cursor: pointer;
+  border-radius: 8px;
+  border: 2px solid rgb(197, 238, 240);
+}
+@media screen and (max-width:1200px){
+  .inner-container{
+      padding: 80px;
+  }
+}
 
+@media screen and (max-width:1000px){
+  .home-section{
+      background-size: 100%;
+      padding: 100px 40px;
+  }
+  .inner-container{
+      width: 100%;
+  }
+}
+
+@media screen and (max-width:600px){
+  .home-section{
+      padding: 0;
+  }
+  .inner-container{
+      padding: 60px;
+  }
+}

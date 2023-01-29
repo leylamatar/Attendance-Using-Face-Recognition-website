@@ -11,6 +11,7 @@
       integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- style CSS -->
     <link
       rel="stylesheet"
@@ -24,7 +25,7 @@
     {% endif %}
   </head>
   <body>
-    <div class="col-md-8">
+    <div class="col-md-12">
       {% with messages = get_flashed_messages(with_categories=true) %} 
       {% if messages %}
       {% for category, message in messages %}
@@ -34,7 +35,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">Attendance System</a>
+          <a class="navbar-brand mr-4" href="/">Attendance Management System</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -49,7 +50,7 @@
           <div class="collapse navbar-collapse" id="navbarToggle">
             <div class="navbar-nav mr-auto">
               <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
-              <a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>
+              <!--<a class="nav-item nav-link" href="{{ url_for('about') }}">About</a>-->
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -65,6 +66,7 @@
           </div>
         </div>
       </nav>
+     
     </header>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

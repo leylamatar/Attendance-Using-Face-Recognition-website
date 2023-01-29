@@ -164,3 +164,5 @@ def add():
     train_model()
     names,IDs,times,l = extract_attendance()    
     return render_template('attendance.html',names=names,IDs=IDs,times=times,l=l,totalreg=totalreg(),datetoday2=datetoday2()) 
+
+
