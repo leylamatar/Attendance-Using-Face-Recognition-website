@@ -2,7 +2,7 @@
 Bu projenin amacı, bir etkinlikte ya da okul gibi bir yerde kişilerin kim olduğunu tanımlayarak, onların varlığını veya yokluğunu takip etmektir. Bu teknoloji sayesinde yoklama alma işlemi daha hızlı ve doğru hale gelir ve manuel yoklama alma işlemlerinde olabilecek hatalar önlenebilir.
 # Installation
 projeyi çalıştırmak için requiremenets.txt dosyası pip kullanarak yükleyin.
-komut ->  pip install -r requirements.txt
+komut ->  `pip install -r requirements.txt`
 ## How To Use 
 projeyi açınca HOME sayfasıyla karşılaşacaksınız.Bu sayfada yüz tanıma hakkında kısa bilgi verildi.
 ### Yoklama almak için,
