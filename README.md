@@ -3,9 +3,9 @@ Bu projenin amacı, bir etkinlikte ya da okul gibi bir yerde kişilerin kim oldu
 # Installation
 projeyi çalıştırmak için requiremenets.txt dosyası pip kullanarak yükleyin.
 komut ->  pip install -r requirements.txt
-#How To Use 
+## How To Use 
 projeyi açınca HOME sayfasıyla karşılaşacaksınız.Bu sayfada yüz tanıma hakkında kısa bilgi verildi.
-#Yoklama almak için,
+### Yoklama almak için,
 1-register sayfasında yeni hesap açılır.
 ![register 2](https://user-images.githubusercontent.com/59232417/215354471-1421a42e-9fcf-4765-8766-44f47e17889a.png)
 2-Login sayfasından giriş yapılır.
