@@ -56,21 +56,19 @@
     />
     <title>Face Recognition Based Attendance System</title>
   </head>
-  <body style="background-color: #ffffff;">
-    
-    
-    
+  <body style="background-color: #ffffff">
     {% if mess%}
-    <p class="text-center" style="color: rgb(156, 29, 29); font-size: 20px">{{ mess }}</p>
+    <p class="text-center" style="color: rgb(156, 29, 29); font-size: 20px">
+      {{ mess }}
+    </p>
     {% endif %}
     <div class="row text-center" style="padding: 20px; margin: 20px">
-      
       <div
         class="col"
         style="
           border-radius: 20px;
           padding: 0px;
-          background-color: rgb(211, 211, 211, 0.5);
+          background-color: rgba(221, 218, 218, 0.5);
           margin: 40px 10px 50px 10px;
           min-height: 500px;
         "
@@ -78,12 +76,12 @@
         <h2
           style="
             border-radius: 20px 20px 0px 0px;
-            background-color: #0b4c61;
+            background-color: #000000e1;
             color: white;
             padding: 10px;
           "
         >
-          Today's Attendance <i class="material-icons">assignment</i>
+          Today's Attendance
         </h2>
         <a style="text-decoration: none; max-width: 300px" href="/start">
           <button
@@ -95,14 +93,13 @@
               padding: 10px;
               margin-top: 30px;
               margin-bottom: 30px;
-              background-color: #0b4c61;
+              background-color: #000000e1;
             "
             type="submit"
             class="btn btn-primary"
           >
-            Take Attendance <i class="material-icons">beenhere</i>
+            Take Attendance
           </button>
-          
         </a>
         <table style="background-color: white">
           <tr>
@@ -121,13 +118,14 @@
           {% endfor %} {% endif %}
         </table>
         <a href="/showlist">
-        <button
+          <button
             style="width: 232px; margin-top: 20px; font-size: 20px"
             type="submit"
             class="btn btn-dark"
           >
             Show student list
-          </button></a>
+          </button></a
+        >
       </div>
       <div
         class=""
@@ -143,12 +141,12 @@
           <h2
             style="
               border-radius: 20px 20px 0px 0px;
-              background-color: #0b4c61;
+              background-color: #000000e1;
               color: white;
               padding: 10px;
             "
           >
-            Add New Student <i class="material-icons">control_point_duplicate</i>
+            Add New Student
           </h2>
           <label style="font-size: 20px"><b>Enter New Student Name*</b></label>
           <br />
@@ -187,7 +185,7 @@
           >
             Add New Student
           </button>
-          
+
           <br />
           <h5 style="padding: 25px">
             <i>You Added {{totalreg}} New Students To The Database </i>
@@ -195,7 +193,6 @@
         </form>
       </div>
     </div>
-  
   </body>
 </html>
 {% endblock %}

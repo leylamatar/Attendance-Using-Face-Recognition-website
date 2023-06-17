@@ -1,15 +1,21 @@
 {% extends "base.html" %} {% block content %}
 
 <div class="home-section">
-<div class="inner-container">
-    <h1>A Facial Recognition Attendance System</h1>
+  <div class="inner-container">
+    <h1>Attendance Management System With Face ID</h1>
 
-<p class="paragraf">A facial recognition attendance system is a type of biometric technology that uses a person's unique facial features to verify their identity and track their attendance.
-     This type of system is typically used in workplaces, schools, and other organizations to automate the process of taking attendance and to prevent buddy punching (when one person clocks in or out for another person). 
-     The system works by capturing an image of a person's face, analyzing it using facial recognition software, and comparing it to a database of known faces to confirm the person's identity. The system may also be integrated 
-     with time and attendance software to automatically record when the person arrives and leaves.</p>
-     <div class="pson">Login To Take Attendance 
-    <a href="{{ url_for('login') }}"> <button type="button" id="logbtn" >Login</button></div></a>
-    </div>
+    <p class="paragraf">
+      A facial recognition attendance system is a type of biometric technology
+      that uses a person's unique facial features to verify their identity and
+      track their attendance. This type of system is typically used in
+      workplaces, schools, and other organizations to automate the process of
+      taking attendance and to prevent buddy punching (when one person clocks in
+      or out for another person). The system works by capturing an image of a
+      person's face, analyzing it using facial recognition software, and
+      comparing it to a database of known faces to confirm the person's
+      identity. The system may also be integrated with time and attendance
+      software to automatically record when the person arrives and leaves.
+    </p>
+  </div>
+  {% endblock %}
 </div>
-{% endblock %}

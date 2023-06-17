@@ -1,7 +1,7 @@
 import os
 import secrets
 from PIL import Image
-from flask import render_template, url_for, flash, redirect,request
+from flask import render_template, send_file, url_for, flash, redirect,request
 from website import app,db,bcrypt
 from website.forms import RegistrationForm, LoginForm, UpdateAccountForm
 from website.models import User
@@ -14,7 +14,7 @@ import joblib
 from flask import render_template, url_for, flash, redirect,request
 from website import app
 import datetime as dt
-from website.atten import extract_attendance,extract_faces,datetoday2,totalreg,identify_face,add_attendance,train_model
+from website.atten import datetoday,extract_attendance,extract_faces,datetoday2,totalreg,identify_face,add_attendance,train_model
 
 
 
@@ -102,35 +102,48 @@ def account():
                            image_file=image_file, form=form)
 
 
-################## ROUTING FUNCTIONS #########################
-#### Our main page
+###ROUTING FUNCTIONS ####
+#main page
 @app.route('/attendance')
 def attendance():
     names,IDs,times,l = extract_attendance()    
     return render_template('attendance.html',names=names,IDs=IDs,times=times,l=l,totalreg=totalreg(),datetoday2=datetoday2()) 
 #### This function will run when we click on Take Attendance Button
-@app.route('/start',methods=['GET'])
+@app.route('/start', methods=['GET'])
 def start():
     if 'face_recognition_model.pkl' not in os.listdir('face_detection'):
-        return render_template('attendance.html',totalreg=totalreg(),datetoday2=datetoday2(),mess='There is no trained model in the face_detection folder. Please add a new face to continue.') 
+        return render_template('attendance.html', totalreg=totalreg(), datetoday2=datetoday2(),
+                               mess='There is no trained model in the face_detection folder. Please add a new face to continue.')
+
     cap = cv2.VideoCapture(0)
     ret = True
+
     while ret:
-        ret,frame = cap.read()
-        if extract_faces(frame)!=():
-            (x,y,w,h) = extract_faces(frame)[0]
-            cv2.rectangle(frame,(x, y), (x+w, y+h), (255, 0, 20), 2)
-            face = cv2.resize(frame[y:y+h,x:x+w], (50, 50))
-            identified_person = identify_face(face.reshape(1,-1))[0]
-            add_attendance(identified_person)
-            cv2.putText(frame,f'{identified_person}',(30,30),cv2.FONT_HERSHEY_SIMPLEX,1,(255, 0, 20),2,cv2.LINE_AA)
-        cv2.imshow('Attendance',frame)
-        if cv2.waitKey(1)==27:
+        ret, frame = cap.read()
+        faces = extract_faces(frame)
+
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 20), 2)
+            face = cv2.resize(frame[y:y + h, x:x + w], (50, 50))
+            identified_person = identify_face(face.reshape(1, -1))
+
+            if identified_person == "Unknown":
+                cv2.putText(frame, 'Unknown', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 20), 2, cv2.LINE_AA)
+            else:
+                add_attendance(identified_person)
+                cv2.putText(frame, f'{identified_person}', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 20), 2,
+                            cv2.LINE_AA)
+
+        cv2.imshow('Attendance', frame)
+
+        if cv2.waitKey(1) == 27:
             break
+
     cap.release()
     cv2.destroyAllWindows()
-    names,IDs,times,l = extract_attendance()    
-    return render_template('attendance.html',names=names,IDs=IDs,times=times,l=l,totalreg=totalreg(),datetoday2=datetoday2()) 
+    names, IDs, times, l = extract_attendance()
+    return render_template('attendance.html', names=names, IDs=IDs, times=times, l=l, totalreg=totalreg(),
+                           datetoday2=datetoday2())
 
 #### This function will run when we add a new user
 @app.route('/add',methods=['GET','POST'])
@@ -164,5 +177,13 @@ def add():
     train_model()
     names,IDs,times,l = extract_attendance()    
     return render_template('attendance.html',names=names,IDs=IDs,times=times,l=l,totalreg=totalreg(),datetoday2=datetoday2()) 
+
+@app.route('/showlist',methods=['GET','POST'])
+def showlist():
+    attendance_folder = os.path.join(os.getcwd(), 'Attendance')
+    x = dt.date.today()
+    attendance_file = f'Attendance-{x.day}-{x.month}-{x.year}.csv'
+    attendance_file_path = os.path.join(attendance_folder, attendance_file)
+    return send_file(attendance_file_path, as_attachment=True)
 
 

@@ -10,7 +10,7 @@ body {
  
     align-items: center;
     justify-content: center;
-    background-color: #f1f1f1;
+    background-color: #ffffff;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -18,7 +18,7 @@ body {
   }
   
   .bg-steel {
-    background-color: #1f497c;
+    background-color: #000000;
   }
   
   .site-header .navbar-nav .nav-link {
@@ -43,7 +43,7 @@ body {
   }
   
   .article-title {
-    color: #444444;
+    color: #e9e9e9;
   }
   
   a.article-title:hover {
@@ -95,15 +95,15 @@ body {
   }
 .home-section{
   background: url(pic2.png) no-repeat left;
-  background-size: 55%;
+  background-size: 54%;
   background-color: #fdfdfd;
   overflow: hidden;
   
 }
 .inner-container{
-  width: 55%;
+  width: 53%;
   float: right;
-  background: linear-gradient(#80FFDB, #8ce2e2, #81cce2, #669ada, #2a2b63);
+  background: linear-gradient(#01428b, #003457, #180070, #00377a, #000136);
   padding: 90px;
   
 }
@@ -111,20 +111,17 @@ body {
   margin-bottom: 30px;
   font-size: 30px;
   font-weight: 900;
+  color: #e3e3e3;
 }
 .paragraf {
-  font-size: 13px;
-  color: #000000;
+  font-size: 15px;
+  color: #ffffff;
   line-height: 30px;
   text-align: justify;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
-.pson{
-  margin-top: 0px;
-  color: #ffffff;
-  text-decoration: double;
-  font-weight: 900;
-}
+
 #logbtn{
   
   background-color: #74acd1;
